@@ -1,10 +1,10 @@
 import Link from "next/link";
 import {
-  GithubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  TwitterIcon,
-} from "../Icon/Icon";
+  GithubIconLink,
+  InstagramIconLink,
+  LinkedInIconLink,
+  TwitterIconLink,
+} from "../Icon/IconLink";
 
 export default function LeftNav(props) {
   return (
@@ -21,37 +21,19 @@ export default function LeftNav(props) {
         }}
       >
         {[
-          {
-            name: "linkedin",
-            link: "https://www.linkedin.com/in/shreesh-srivastava/",
-            icon: <LinkedInIcon color="black" />,
-          },
-          {
-            name: "twitter",
-            link: "https://twitter.com/ShreeshSrivast8/",
-            icon: <TwitterIcon color="black" />,
-          },
-          {
-            name: "instagram",
-            link: "https://www.instagram.com/neo_945_/",
-            icon: <InstagramIcon color="black" />,
-          },
-          {
-            name: "github",
-            link: "https://github.com/neo945/",
-            icon: <GithubIcon color="black" />,
-          },
-        ].map((item, index) => (
+          LinkedInIconLink,
+          TwitterIconLink,
+          InstagramIconLink,
+          GithubIconLink,
+        ].map((Item, index) => (
           <div
             key={index}
-            className={item.name}
+            className={Item.name}
             style={{
               marginBottom: "10px",
             }}
           >
-            <Link href={item.link} target={"_blank"}>
-              {item.icon}
-            </Link>
+            <Item color="black" />
           </div>
         ))}
         <div

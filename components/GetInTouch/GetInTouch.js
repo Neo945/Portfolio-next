@@ -1,9 +1,11 @@
+import Link from "next/link";
 import Button from "../Button/Button";
-import * as Icon from "../Icon/Icon";
+import * as IconLink from "../Icon/IconLink";
 
 export default function GetInTouch(parms) {
   return (
     <div
+      id="contacts"
       style={{
         display: "flex",
         flexDirection: "column",
@@ -22,9 +24,9 @@ export default function GetInTouch(parms) {
           alignItems: "center",
         }}
       >
-        {Object.keys(Icon).map((key, i) => {
+        {Object.keys(IconLink).map((key, i) => {
           if (key === "Icon") return null;
-          const IconComponent = Icon[key];
+          const IconComponent = IconLink[key];
           return (
             <div
               key={i}
@@ -43,14 +45,16 @@ export default function GetInTouch(parms) {
           );
         })}
       </div>
-      <Button
-        text="Say Hello!"
-        style={{
-          backgroundColor: "rgba(217, 217, 217, 0.19)",
-          color: "white",
-          border: "3px solid white",
-        }}
-      />
+      <Link href={"mailto:shreeshsrvstv@gmail.com"}>
+        <Button
+          text="Say Hello!"
+          style={{
+            backgroundColor: "rgba(217, 217, 217, 0.19)",
+            color: "white",
+            border: "3px solid white",
+          }}
+        />
+      </Link>
     </div>
   );
 }

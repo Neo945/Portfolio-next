@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   GithubIcon,
   InstagramIcon,
@@ -19,38 +20,40 @@ export default function LeftNav(props) {
           flexDirection: "column",
         }}
       >
-        <div
-          className={`linkedin`}
-          style={{
-            marginBottom: "10px",
-          }}
-        >
-          <LinkedInIcon color="black" />
-        </div>
-        <div
-          className={`twitter`}
-          style={{
-            marginBottom: "10px",
-          }}
-        >
-          <TwitterIcon color="black" />
-        </div>
-        <div
-          className={`instagram`}
-          style={{
-            marginBottom: "10px",
-          }}
-        >
-          <InstagramIcon color="black" />
-        </div>
-        <div
-          className={`github`}
-          style={{
-            marginBottom: "10px",
-          }}
-        >
-          <GithubIcon color="black" />
-        </div>
+        {[
+          {
+            name: "linkedin",
+            link: "https://www.linkedin.com/in/shreesh-srivastava/",
+            icon: <LinkedInIcon color="black" />,
+          },
+          {
+            name: "twitter",
+            link: "https://www.linkedin.com/in/shreesh-srivastava/",
+            icon: <TwitterIcon color="black" />,
+          },
+          {
+            name: "instagram",
+            link: "https://www.linkedin.com/in/shreesh-srivastava/",
+            icon: <InstagramIcon color="black" />,
+          },
+          {
+            name: "github",
+            link: "https://www.linkedin.com/in/shreesh-srivastava/",
+            icon: <GithubIcon color="black" />,
+          },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className={item.name}
+            style={{
+              marginBottom: "10px",
+            }}
+          >
+            <Link href={item.link} target={"_blank"}>
+              {item.icon}
+            </Link>
+          </div>
+        ))}
         <div
           style={{
             width: "1px",

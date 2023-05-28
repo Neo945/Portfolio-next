@@ -1,4 +1,20 @@
+import Link from "next/link";
 import Button from "../Button/Button";
+
+function PageText({ text, style }) {
+  return (
+    <div
+      style={{
+        fontWeight: 400,
+        fontSize: "30px",
+        lineHeight: "36px",
+        ...style,
+      }}
+    >
+      {text}
+    </div>
+  );
+}
 
 export default function HomePage(parms) {
   return (
@@ -9,21 +25,49 @@ export default function HomePage(parms) {
     >
       <div
         style={{
-          width: "70%",
+          width: "80%",
         }}
       >
-        <div>Finally you found me!!</div>
-        <div>Hi! My name is</div>
-        <div style={{ fontWeight: "bolder" }}>Shreesh Srivastava</div>
-        <div style={{ fontWeight: "bolder", color: "rgba(94, 94, 94, 1)" }}>
-          I am a Full Stack Developer
+        <PageText text="Finally you found me!!" />
+        <PageText text="Hi! My name is" />
+        <PageText
+          text="Shreesh Srivastava"
+          style={{
+            fontWeight: 700,
+            fontSize: "40px",
+            lineHeight: "48px",
+          }}
+        />
+        <PageText
+          text="I live in Servers, and build cool stuffs"
+          style={{
+            fontWeight: 700,
+            color: "#5E5E5E",
+          }}
+        />
+        <div
+          style={{ color: "rgba(158, 158, 158, 1)", fontSize: "0.8em" }}
+        ></div>
+        <PageText
+          style={{
+            fontWeight: 400,
+            fontSize: "30px",
+            lineHeight: "36px",
+            color: "#9E9E9E",
+          }}
+          text={
+            "I'm a software engineer specializing in building exceptional digital APIs (sometimes designing too)."
+          }
+        />
+        <div
+          style={{
+            marginTop: "20px",
+          }}
+        >
+          <Link href={"mailto:shreeshsrvstv@gmail.com"}>
+            <Button text={<PageText text="Say Hello!" />} />
+          </Link>
         </div>
-        {/* <div>I live in web servers and build some cool stuffs</div> */}
-        <div style={{ color: "rgba(158, 158, 158, 1)" }}>
-          I&apos;m a software engineer specializing in building (and
-          occasionally designing) exceptional digital experiences.
-        </div>
-        <Button text="Hello" />
       </div>
     </div>
   );

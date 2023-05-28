@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Icon } from "../Icon/Icon";
 
 export default function Navbar(props) {
@@ -25,10 +26,18 @@ export default function Navbar(props) {
           justifyContent: "space-evenly",
         }}
       >
-        <div>About Me</div>
-        <div>Experience</div>
-        <div>Projects</div>
-        <div>Contact Me</div>
+        {[
+          { name: "About Me", link: "#aboutme" },
+          { name: "Experience", link: "#experience" },
+          { name: "Projects", link: "#projects" },
+          { name: "Contact Me", link: "#contacts" },
+        ].map((item, i) => {
+          return (
+            <Link href={item.link} key={i}>
+              <div>{item.name}</div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

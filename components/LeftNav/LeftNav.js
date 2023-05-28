@@ -28,17 +28,17 @@ export default function LeftNav(props) {
           },
           {
             name: "twitter",
-            link: "https://www.linkedin.com/in/shreesh-srivastava/",
+            link: "https://twitter.com/ShreeshSrivast8/",
             icon: <TwitterIcon color="black" />,
           },
           {
             name: "instagram",
-            link: "https://www.linkedin.com/in/shreesh-srivastava/",
+            link: "https://www.instagram.com/neo_945_/",
             icon: <InstagramIcon color="black" />,
           },
           {
             name: "github",
-            link: "https://www.linkedin.com/in/shreesh-srivastava/",
+            link: "https://github.com/neo945/",
             icon: <GithubIcon color="black" />,
           },
         ].map((item, index) => (

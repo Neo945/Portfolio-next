@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function RightNav(porps) {
   return (
     <>
@@ -19,7 +21,9 @@ export default function RightNav(porps) {
             marginBottom: "10px",
           }}
         >
-          shreeshsrvstv@gmail.com
+          <Link href={"mailto:shreeshsrvstv@gmail.com"}>
+            shreeshsrvstv@gmail.com
+          </Link>
         </div>
         <div
           style={{

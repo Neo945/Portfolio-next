@@ -1,9 +1,66 @@
+import Image from "next/image";
 import Button from "../Button/Button";
+import { useEffect, useRef, useState } from "react";
 
-export default function AboutMe(parms) {
+function HighlightText({ children }) {
+  return (
+    <span
+      style={{
+        textDecoration: "underline",
+        textDecorationThickness: "1px",
+        color: "#5E5E5E",
+        textShadow: "2px 2px 2px #868686",
+      }}
+    >
+      {children}
+    </span>
+  );
+}
+
+function TextContent() {
+  return (
+    <>
+      <br /> Hello there fellow visitors
+      <br />- Welcome to my portfolio website! I am{" "}
+      <HighlightText>Shreesh Srivastava</HighlightText>, a passionate and
+      skilled <HighlightText>Software Engineer</HighlightText> with a deep love
+      for creating innovative solutions. I specialize in building backend web
+      services and developing some cool web applications.
+      <br />
+      - Over the years, I have honed my skills in front-end and back-end
+      development, database management, and system architecture. Constant
+      learning and staying up-to-date with industry trends are essential to my
+      approach.
+      <br />
+      - As a engineer, Currently, I am trying to learn everything I can because
+      there is no end for us.
+      <br />- When I&apos;m not immersed in code, you can find me exploring new
+      hiking trails, reading some random books or comics, or enjoying a{" "}
+      <HighlightText>cup of coffee</HighlightText>. I believe in maintaining a
+      healthy work-life balance, as it fuels my creativity and keeps me
+      inspired.
+      <br></br>That&apos;s all about it.
+      <br></br>
+      Thank you for visiting my portfolio website. I hope you enjoy it!
+    </>
+  );
+}
+
+export default function AboutMe() {
+  const ref = useRef();
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  useEffect(() => {
+    if (ref.current) {
+      setDimensions({
+        width: ref.current.offsetWidth,
+        height: ref.current.offsetHeight,
+      });
+    }
+  }, []);
   return (
     <>
       <div
+        id="aboutme"
         style={{
           width: "75%",
           display: "flex",
@@ -12,7 +69,7 @@ export default function AboutMe(parms) {
       >
         <div
           style={{
-            width: "60%",
+            width: "70%",
           }}
         >
           <div
@@ -27,41 +84,37 @@ export default function AboutMe(parms) {
               fontSize: "20px",
             }}
           >
-            Hello! My name is Brittany and I enjoy creating things that live on
-            the internet. My interest in web development started back in 2012
-            when I decided to try editing custom Tumblr themes — turns out
-            hacking together a custom reblog button taught me a lot about HTML &
-            CSS! <br></br>
-            <br></br> Here are a few technologies I&apos;ve been working with
-            recently:
-            <br></br>
-            <br></br>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "auto auto",
-              }}
-            >
-              {[1, 2, 3, 4].map((item, i) => (
-                <div key={i}>&rarr; {item}</div>
-              ))}
-            </div>
+            <TextContent />
           </div>
         </div>
         <div
+          ref={ref}
           style={{
             width: "30%",
+            position: "relative",
           }}
         >
           <div
             style={{
-              width: "100%",
-              height: "100%",
-              backgroundColor: "black",
-              paddingTop: "100%",
+              width: dimensions.width * 0.75,
+              height: dimensions.width * 0.75,
+              background: "url(/image.png) center center / cover no-repeat",
+              // paddingTop: "100%",
               borderRadius: "50%",
+              position: "absolute",
+              top: "0%",
+              right: "0%",
             }}
           ></div>
+          {/* <Image
+            style={{
+              borderRadius: "50%",
+            }}
+            src="/image.png"
+            alt="Picture of the author"
+            width={400}
+            height={400}
+          /> */}
         </div>
       </div>
       <div></div>

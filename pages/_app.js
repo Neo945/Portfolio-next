@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/vercel.svg" />
+        <link rel="icon" href="/icon.svg" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       {isWindowSize ? <Component {...pageProps} /> : <ComingSoon />}

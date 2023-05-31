@@ -20,7 +20,7 @@ export default function Home() {
       <main
         className={styles.main}
         style={{
-          scrollSnapType: "y mandatory",
+          // scrollSnapType: "y mandatory",
           overflowY: "scroll",
           height: "100vh",
           position: "relative",

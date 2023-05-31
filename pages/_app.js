@@ -1,7 +1,7 @@
 import Head from "next/head";
 import "../styles/globals.css";
 import { useEffect, useState } from "react";
-import ComingSoon from "../components/ComingSoon";
+import ComingSoon from "../components/ComingSoon/ComingSoon";
 
 function MyApp({ Component, pageProps }) {
   const [isWindowSize, setIsWindowSize] = useState(true);

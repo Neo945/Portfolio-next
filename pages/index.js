@@ -12,7 +12,13 @@ import Project from "../components/Project/Project";
 import { createRef, useEffect, useState } from "react";
 import SideNavbar from "../components/SideNavbar/SideNavbar";
 
-export default function Home() {
+export default function Home(props) {
+  const [navbarState, setNavbarState] = useState([
+    { name: "About Me", link: "#aboutme", active: false },
+    { name: "Experience", link: "#experience", active: false },
+    { name: "Projects", link: "#projects", active: false },
+    { name: "Contact Me", link: "#contacts", active: false },
+  ]);
   const ref = createRef();
   const [isOnTop, setIsOnTop] = useState(true);
   useEffect(() => {
@@ -43,7 +49,17 @@ export default function Home() {
           scrollBehavior: "smooth",
         }}
       >
-        {isOnTop ? <Navbar></Navbar> : <SideNavbar></SideNavbar>}
+        {isOnTop ? (
+          <Navbar
+            navbarState={navbarState}
+            setNavbarState={setNavbarState}
+          ></Navbar>
+        ) : (
+          <SideNavbar
+            navbarState={navbarState}
+            setNavbarState={setNavbarState}
+          ></SideNavbar>
+        )}
         <LeftNav></LeftNav>
         <RightNav></RightNav>
         <Page>
@@ -54,7 +70,10 @@ export default function Home() {
             justifyContent: "space-evenly",
           }}
         >
-          <AboutMe></AboutMe>
+          <AboutMe
+            navbarState={navbarState}
+            setNavbarState={setNavbarState}
+          ></AboutMe>
         </Page>
 
         <Page
@@ -63,16 +82,25 @@ export default function Home() {
             margin: "20px 0px",
           }}
         >
-          <Project></Project>
+          <Project
+            navbarState={navbarState}
+            setNavbarState={setNavbarState}
+          ></Project>
         </Page>
+        {/* {props.isWondowSize ? ( */}
         <Page
           style={{
             backgroundColor: "black",
             color: "white",
           }}
         >
-          <GetInTouch></GetInTouch>
+          <GetInTouch
+            navbarState={navbarState}
+            setNavbarState={setNavbarState}
+          ></GetInTouch>
         </Page>
+        {/* )  */}
+        {/* : null} */}
       </main>
     </div>
   );

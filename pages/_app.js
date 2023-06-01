@@ -20,7 +20,10 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/icon.svg" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      {isWindowSize ? <Component {...pageProps} /> : <ComingSoon />}
+      {/* {isWindowSize ? ( */}
+      <Component {...pageProps} isWindowSize={isWindowSize} />
+      {/* ) : ( <ComingSoon /> */}
+      {/* )} */}
     </>
   );
 }

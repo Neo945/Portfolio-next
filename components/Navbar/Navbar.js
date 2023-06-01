@@ -26,12 +26,7 @@ export default function Navbar(props) {
           justifyContent: "space-evenly",
         }}
       >
-        {[
-          { name: "About Me", link: "#aboutme" },
-          { name: "Experience", link: "#experience" },
-          { name: "Projects", link: "#projects" },
-          { name: "Contact Me", link: "#contacts" },
-        ].map((item, i) => {
+        {props.navbarState.map((item, i) => {
           return (
             <Link href={item.link} key={i}>
               <div>{item.name}</div>

@@ -1,11 +1,36 @@
 import Link from "next/link";
 import Button from "../Button/Button";
 import * as IconLink from "../Icon/IconLink";
+import { useEffect, useRef } from "react";
 
-export default function GetInTouch(parms) {
+export default function GetInTouch(props) {
+  const getInTouchRef = useRef();
+  useEffect(() => {
+    if (getInTouchRef.current) {
+      const observer = new IntersectionObserver((entries) => {
+        // console.log(entries);
+        if (entries[0].isIntersecting) {
+          props.setNavbarState((prev) => {
+            let newState = [...prev];
+            newState[3].active = true;
+            return newState;
+          });
+        } else {
+          props.setNavbarState((prev) => {
+            let newState = [...prev];
+            newState[3].active = false;
+            return newState;
+          });
+        }
+      });
+      observer.observe(getInTouchRef.current);
+    }
+  }, [props]);
+
   return (
     <div
       id="contacts"
+      ref={getInTouchRef}
       style={{
         display: "flex",
         flexDirection: "column",

@@ -45,7 +45,7 @@ function StrokeText(props) {
   );
 }
 
-export default function SideNavbar() {
+export default function SideNavbar(props) {
   return (
     <>
       <div
@@ -61,18 +61,13 @@ export default function SideNavbar() {
             display: "relative",
           }}
         >
-          {[
-            { name: "About Me", link: "#aboutme" },
-            { name: "Experience", link: "#experience" },
-            { name: "Projects", link: "#projects" },
-            { name: "Contact Me", link: "#contacts" },
-          ].map((item, i) => {
+          {props.navbarState.map((item, i) => {
             return (
               <StrokeText
                 key={i}
                 text={item.name}
                 link={item.link}
-                active={false}
+                active={item.active}
               />
             );
           })}

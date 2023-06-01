@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Button from "../Button/Button";
+import { createRef, useEffect, useState } from "react";
 
 function Projects(props) {
   return (
@@ -108,7 +109,7 @@ function SideProject(props) {
                 </Link>
               </>
             ) : (
-              `${props.title} | `
+              `${props.title}`
             )}
           </div>
           <div
@@ -125,71 +126,6 @@ function SideProject(props) {
     </>
   );
 }
-
-const deteData = [
-  {
-    id: "Experience",
-    content: [
-      {
-        title: "Ajnalens",
-        content: [
-          "Contributed to a flagship remote collaborative application in Augmented Reality",
-          "Revamped the front-end for the application",
-          "Benchmarked the designs implemented with competitors like Mozilla Hub",
-          "Gained insight into 3D graphics and researched technologies like Three Js, WebGL etc.",
-          "Co-wrote Annotations which let the user place objects over the 3D model.",
-          "Introduced sketching feature in Augmented Reality. This was one of the major changes which allowed the user to draw in 3D space.",
-          "Improved the development process by creating a separate development environment for the application",
-          "Brought down the loading time of the application by caching the necessary modules of the application in the browser",
-          "Identified the need for documentation of the application and its features and co-wrote the SRS document",
-        ],
-        image: "/ajna3.jpg",
-      },
-      {
-        title: "Brindley Technologies",
-        content: [
-          "Contributed to Customer Relationship Management software.",
-          "CRM are used to maintain a company’s relationships and interactions with customers and potential customers across the entire customer lifecycle, spanning marketing, sales, presales, operations and customer service interactions",
-          "Designed a workflow of data from potential customers to clients for a specific project. Co-wrote the backend APIs withrespect to the business logic",
-          "Benchmarked the designs implemented with competitors like ZOHO CRM",
-          "Maintained the leads and feedback of each customer at every stage of the customer lifecycle for a particular job",
-          "Implemented a script for web scraping data of potential customers from LinkedIn.",
-          "Designed a CI/CD pipeline using GitHub Actions and AWS EC2 servers to integrate and deploy the project",
-          "Deployed backend server on EC2 Instance using NGINX server as a reverse proxy",
-        ],
-        image: "/brad2.png",
-      },
-    ],
-  },
-  {
-    id: "Projects",
-    content: [
-      {
-        title: "Road Lane Line Detection",
-        content: [
-          "Conceptualized and contributed to an algorithm that precisely detects the road lane lines and indicates the driver information related to directions.",
-          "Designed the algorithm using Haugh Transform to detect the road lane lines.",
-          "Implemented an Image Segmentation method to detect the direction using histogram analysis and perspective transformations in order to work under complex circumstances.",
-          "Trained the algorithm using the CuLane Dataset of videos.",
-          "Published an article on Springer conferences.",
-        ],
-        image: "/road.avif",
-        link: "https://github.com/Neo945/Road-lane-line-detection",
-      },
-      {
-        title: "String Review",
-        content: [
-          "Conceptualized and contributed to a website that recommends different movies to the users based on their past activities on the website",
-          "Trained the machine learning model using the cosine similarity algorithm and datasets fetched from IMDB API. 89% accuracy score achieved.",
-          "Upgraded the system by adding the caching feature which reduced the cost of processing.",
-          "Modified the model by integrating both the collaborative and content-based filtering algorithms together in the model.",
-        ],
-        image: "/movie.jpg",
-        link: "https://github.com/Neo945/Movie-Recommender-System",
-      },
-    ],
-  },
-];
 
 const randData = [
   {
@@ -217,7 +153,118 @@ const randData = [
   },
 ];
 
-export default function Project(parms) {
+export default function Project(props) {
+  const expRef = createRef();
+  const projRef = createRef();
+  const [deteData, _] = useState([
+    {
+      id: "Experience",
+      ref: expRef,
+      content: [
+        {
+          title: "Ajnalens",
+          content: [
+            "Contributed to a flagship remote collaborative application in Augmented Reality",
+            "Revamped the front-end for the application",
+            "Benchmarked the designs implemented with competitors like Mozilla Hub",
+            "Gained insight into 3D graphics and researched technologies like Three Js, WebGL etc.",
+            "Co-wrote Annotations which let the user place objects over the 3D model.",
+            "Introduced sketching feature in Augmented Reality. This was one of the major changes which allowed the user to draw in 3D space.",
+            "Improved the development process by creating a separate development environment for the application",
+            "Brought down the loading time of the application by caching the necessary modules of the application in the browser",
+            "Identified the need for documentation of the application and its features and co-wrote the SRS document",
+          ],
+          image: "/ajna3.jpg",
+        },
+        {
+          title: "Brindley Technologies",
+          content: [
+            "Contributed to Customer Relationship Management software.",
+            "CRM are used to maintain a company’s relationships and interactions with customers and potential customers across the entire customer lifecycle, spanning marketing, sales, presales, operations and customer service interactions",
+            "Designed a workflow of data from potential customers to clients for a specific project. Co-wrote the backend APIs withrespect to the business logic",
+            "Benchmarked the designs implemented with competitors like ZOHO CRM",
+            "Maintained the leads and feedback of each customer at every stage of the customer lifecycle for a particular job",
+            "Implemented a script for web scraping data of potential customers from LinkedIn.",
+            "Designed a CI/CD pipeline using GitHub Actions and AWS EC2 servers to integrate and deploy the project",
+            "Deployed backend server on EC2 Instance using NGINX server as a reverse proxy",
+          ],
+          image: "/brad2.png",
+        },
+      ],
+    },
+    {
+      id: "Projects",
+      ref: projRef,
+      content: [
+        {
+          title: "Road Lane Line Detection",
+          content: [
+            "Conceptualized and contributed to an algorithm that precisely detects the road lane lines and indicates the driver information related to directions.",
+            "Designed the algorithm using Haugh Transform to detect the road lane lines.",
+            "Implemented an Image Segmentation method to detect the direction using histogram analysis and perspective transformations in order to work under complex circumstances.",
+            "Trained the algorithm using the CuLane Dataset of videos.",
+            "Published an article on Springer conferences.",
+          ],
+          image: "/road.avif",
+          link: "https://github.com/Neo945/Road-lane-line-detection",
+        },
+        {
+          title: "String Review",
+          content: [
+            "Conceptualized and contributed to a website that recommends different movies to the users based on their past activities on the website",
+            "Trained the machine learning model using the cosine similarity algorithm and datasets fetched from IMDB API. 89% accuracy score achieved.",
+            "Upgraded the system by adding the caching feature which reduced the cost of processing.",
+            "Modified the model by integrating both the collaborative and content-based filtering algorithms together in the model.",
+          ],
+          image: "/movie.jpg",
+          link: "https://github.com/Neo945/Movie-Recommender-System",
+        },
+      ],
+    },
+  ]);
+  useEffect(() => {
+    if (expRef.current) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            props.setNavbarState((prev) => {
+              let newState = [...prev];
+              newState[1].active = true;
+              return newState;
+            });
+          } else {
+            props.setNavbarState((prev) => {
+              let newState = [...prev];
+              newState[1].active = false;
+              return newState;
+            });
+          }
+        });
+      });
+      observer.observe(expRef.current);
+    }
+    if (projRef.current) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          console.log(entry);
+          if (entry.isIntersecting) {
+            props.setNavbarState((prev) => {
+              let newState = [...prev];
+              newState[2].active = true;
+              return newState;
+            });
+          } else {
+            props.setNavbarState((prev) => {
+              let newState = [...prev];
+              newState[2].active = false;
+              return newState;
+            });
+          }
+        });
+      });
+      observer.observe(projRef.current);
+    }
+  }, [expRef, projRef]);
   return (
     <>
       <div
@@ -229,7 +276,7 @@ export default function Project(parms) {
         <div style={{ fontSize: "0.8em" }}>
           {deteData.map((item, i) => {
             return (
-              <div key={i} id={item.id.toLocaleLowerCase()}>
+              <div ref={item.ref} key={i} id={item.id.toLocaleLowerCase()}>
                 <div style={{ fontWeight: "bold", marginTop: "20px" }}>
                   {item.id}
                 </div>

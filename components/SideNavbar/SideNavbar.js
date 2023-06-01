@@ -24,7 +24,7 @@ function StrokeText(props) {
             className="stroke"
             style={{
               transition: "all 0.25s ease",
-              backgroundColor: props.active || mouseOver ? "black" : "#A6A6A6",
+              backgroundColor: props.active || mouseOver ? "grey" : "#A6A6A6",
               width: props.active || mouseOver ? "40px" : "20px",
               height: "2px",
             }}
@@ -34,7 +34,7 @@ function StrokeText(props) {
               transition: "all 0.25s ease",
               textAlign: "left",
               margin: "5px 10px",
-              color: props.active || mouseOver ? "black" : "#A6A6A6",
+              color: props.active || mouseOver ? "grey" : "#A6A6A6",
             }}
           >
             {props.text}

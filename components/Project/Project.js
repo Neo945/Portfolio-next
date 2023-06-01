@@ -224,47 +224,57 @@ export default function Project(props) {
   ]);
   useEffect(() => {
     if (expRef.current) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            props.setNavbarState((prev) => {
-              let newState = [...prev];
-              newState[1].active = true;
-              return newState;
-            });
-          } else {
-            props.setNavbarState((prev) => {
-              let newState = [...prev];
-              newState[1].active = false;
-              return newState;
-            });
-          }
-        });
-      });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              props.setNavbarState((prev) => {
+                let newState = [...prev];
+                newState[1].active = true;
+                return newState;
+              });
+            } else {
+              props.setNavbarState((prev) => {
+                let newState = [...prev];
+                newState[1].active = false;
+                return newState;
+              });
+            }
+          });
+        },
+        {
+          threshold: 0.5,
+        }
+      );
       observer.observe(expRef.current);
     }
     if (projRef.current) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          console.log(entry);
-          if (entry.isIntersecting) {
-            props.setNavbarState((prev) => {
-              let newState = [...prev];
-              newState[2].active = true;
-              return newState;
-            });
-          } else {
-            props.setNavbarState((prev) => {
-              let newState = [...prev];
-              newState[2].active = false;
-              return newState;
-            });
-          }
-        });
-      });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // console.log(entry);
+            if (entry.isIntersecting) {
+              props.setNavbarState((prev) => {
+                let newState = [...prev];
+                newState[2].active = true;
+                return newState;
+              });
+            } else {
+              props.setNavbarState((prev) => {
+                let newState = [...prev];
+                newState[2].active = false;
+                return newState;
+              });
+            }
+          });
+        },
+        {
+          threshold: 0.5,
+        }
+      );
       observer.observe(projRef.current);
     }
-  }, [expRef, projRef]);
+  }, [props, expRef, projRef]);
   return (
     <>
       <div

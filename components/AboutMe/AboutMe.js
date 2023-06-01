@@ -58,22 +58,27 @@ export default function AboutMe(props) {
       });
     }
     if (aboutMeRef.current) {
-      const observer = new IntersectionObserver((entries) => {
-        // console.log(entries);
-        if (entries[0].isIntersecting) {
-          props.setNavbarState((prev) => {
-            let newState = [...prev];
-            newState[0].active = true;
-            return newState;
-          });
-        } else {
-          props.setNavbarState((prev) => {
-            let newState = [...prev];
-            newState[0].active = false;
-            return newState;
-          });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          // console.log(entries);
+          if (entries[0].isIntersecting) {
+            props.setNavbarState((prev) => {
+              let newState = [...prev];
+              newState[0].active = true;
+              return newState;
+            });
+          } else {
+            props.setNavbarState((prev) => {
+              let newState = [...prev];
+              newState[0].active = false;
+              return newState;
+            });
+          }
+        },
+        {
+          threshold: 0.5,
         }
-      });
+      );
       observer.observe(aboutMeRef.current);
     }
   }, [props]);

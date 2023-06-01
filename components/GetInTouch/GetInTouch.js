@@ -7,22 +7,27 @@ export default function GetInTouch(props) {
   const getInTouchRef = useRef();
   useEffect(() => {
     if (getInTouchRef.current) {
-      const observer = new IntersectionObserver((entries) => {
-        // console.log(entries);
-        if (entries[0].isIntersecting) {
-          props.setNavbarState((prev) => {
-            let newState = [...prev];
-            newState[3].active = true;
-            return newState;
-          });
-        } else {
-          props.setNavbarState((prev) => {
-            let newState = [...prev];
-            newState[3].active = false;
-            return newState;
-          });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          // console.log(entries);
+          if (entries[0].isIntersecting) {
+            props.setNavbarState((prev) => {
+              let newState = [...prev];
+              newState[3].active = true;
+              return newState;
+            });
+          } else {
+            props.setNavbarState((prev) => {
+              let newState = [...prev];
+              newState[3].active = false;
+              return newState;
+            });
+          }
+        },
+        {
+          threshold: 0.5,
         }
-      });
+      );
       observer.observe(getInTouchRef.current);
     }
   }, [props]);

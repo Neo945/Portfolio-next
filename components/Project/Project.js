@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Button from "../Button/Button";
 import { createRef, useEffect, useState } from "react";
+import HighlightText from "../HighlightText/HighlightText";
 
 function Projects(props) {
   return (
@@ -102,14 +103,44 @@ function SideProject(props) {
             }}
           >
             {props.link ? (
-              <>
-                {`${props.title} | `}
-                <Link href={props.link} target="_blank">
+              <div>
+                {`${props.title} `}
+                <Link
+                  href={props.link}
+                  style={{
+                    fontSize: "0.75em",
+                    color: "blue",
+                  }}
+                  target="_blank"
+                >
                   Github
                 </Link>
-              </>
+                <div
+                  style={{
+                    fontSize: "0.5em",
+                  }}
+                >
+                  {props.duration}
+                </div>
+              </div>
             ) : (
-              `${props.title}`
+              <>
+                {`${props.title}`}
+                <div
+                  style={{
+                    fontSize: "0.75em",
+                  }}
+                >
+                  {props.jd}
+                </div>
+                <div
+                  style={{
+                    fontSize: "0.5em",
+                  }}
+                >
+                  {props.duration}
+                </div>
+              </>
             )}
           </div>
           <div
@@ -163,11 +194,24 @@ export default function Project(props) {
       content: [
         {
           title: "Ajnalens",
+          jd: "Full Stack Developer",
+          duration: "Sept 2021 - Jan 2022",
           content: [
-            "Contributed to a flagship remote collaborative application in Augmented Reality",
+            <>
+              Contributed to a flagship remote collaborative application in{" "}
+              <HighlightText>Augmented Reality</HighlightText>
+            </>,
             "Revamped the front-end for the application",
-            "Benchmarked the designs implemented with competitors like Mozilla Hub",
-            "Gained insight into 3D graphics and researched technologies like Three Js, WebGL etc.",
+            <>
+              Benchmarked the designs implemented with competitors like
+              <HighlightText> Mozilla Hub</HighlightText>
+            </>,
+            <>
+              Gained insight into
+              <HighlightText> 3D graphics</HighlightText>
+              and researched technologies like
+              <HighlightText>Three Js, WebGL etc.</HighlightText>
+            </>,
             "Co-wrote Annotations which let the user place objects over the 3D model.",
             "Introduced sketching feature in Augmented Reality. This was one of the major changes which allowed the user to draw in 3D space.",
             "Improved the development process by creating a separate development environment for the application",
@@ -178,15 +222,46 @@ export default function Project(props) {
         },
         {
           title: "Brindley Technologies",
+          jd: "Backend Developer",
+          duration: "June 2022- July 2022",
           content: [
-            "Contributed to Customer Relationship Management software.",
-            "CRM are used to maintain a company’s relationships and interactions with customers and potential customers across the entire customer lifecycle, spanning marketing, sales, presales, operations and customer service interactions",
+            <>
+              Contributed to
+              <HighlightText>
+                Customer Relationship Management software
+              </HighlightText>
+              .
+            </>,
+            <>
+              CRM are used to maintain a company&apos;s relationships and
+              interactions with customers and potential customers across the
+              entire
+              <HighlightText> customer lifecycle</HighlightText>, spanning
+              marketing, sales, presales, operations and customer service
+              interactions.
+            </>,
             "Designed a workflow of data from potential customers to clients for a specific project. Co-wrote the backend APIs withrespect to the business logic",
-            "Benchmarked the designs implemented with competitors like ZOHO CRM",
-            "Maintained the leads and feedback of each customer at every stage of the customer lifecycle for a particular job",
+            <>
+              Benchmarked the designs implemented with competitors like
+              <HighlightText> ZOHO CRM</HighlightText>
+            </>,
+            <>
+              Maintained the <HighlightText>leads and feedback </HighlightText>
+              of each customer at every stage of the customer lifecycle for a
+              particular job.
+            </>,
             "Implemented a script for web scraping data of potential customers from LinkedIn.",
-            "Designed a CI/CD pipeline using GitHub Actions and AWS EC2 servers to integrate and deploy the project",
-            "Deployed backend server on EC2 Instance using NGINX server as a reverse proxy",
+            <>
+              Designed a CI/CD pipeline using{" "}
+              <HighlightText>GitHub Actions </HighlightText>
+              and <HighlightText> AWS EC2 servers</HighlightText>
+              to integrate and deploy the project.
+            </>,
+            <>
+              Deployed backend server on EC2 Instance using{" "}
+              <HighlightText>NGINX server </HighlightText>
+              as a <HighlightText>reverse proxy</HighlightText>
+            </>,
           ],
           image: "/brad2.png",
         },
@@ -198,23 +273,55 @@ export default function Project(props) {
       content: [
         {
           title: "Road Lane Line Detection",
+          duration: "July 2022 - Aug 2023",
           content: [
             "Conceptualized and contributed to an algorithm that precisely detects the road lane lines and indicates the driver information related to directions.",
-            "Designed the algorithm using Haugh Transform to detect the road lane lines.",
-            "Implemented an Image Segmentation method to detect the direction using histogram analysis and perspective transformations in order to work under complex circumstances.",
-            "Trained the algorithm using the CuLane Dataset of videos.",
-            "Published an article on Springer conferences.",
+            <>
+              Designed the algorithm using{" "}
+              <HighlightText>Haugh Transform</HighlightText> to detect the road
+              lane lines.
+            </>,
+            <>
+              Implemented an <HighlightText>Image Segmentation</HighlightText>{" "}
+              method to detect the direction using histogram analysis and
+              perspective transformations in order to work under complex
+              circumstances.
+            </>,
+            <>
+              Trained the algorithm using the{" "}
+              <HighlightText>CuLane Dataset</HighlightText> method to of videos.
+            </>,
+            <>
+              Published an article on{" "}
+              <HighlightText>Springer conferences</HighlightText>.
+            </>,
           ],
           image: "/road.avif",
           link: "https://github.com/Neo945/Road-lane-line-detection",
         },
         {
           title: "String Review",
+          duration: "Mar 2021 - Nov 2021",
           content: [
             "Conceptualized and contributed to a website that recommends different movies to the users based on their past activities on the website",
-            "Trained the machine learning model using the cosine similarity algorithm and datasets fetched from IMDB API. 89% accuracy score achieved.",
-            "Upgraded the system by adding the caching feature which reduced the cost of processing.",
-            "Modified the model by integrating both the collaborative and content-based filtering algorithms together in the model.",
+            <>
+              Trained the machine learning model using the cosine similarity
+              algorithm and datasets fetched from IMDB API.{" "}
+              <HighlightText>89% accuracy </HighlightText>
+              score achieved.
+            </>,
+            <>
+              Upgraded the system by adding the{" "}
+              <HighlightText>caching feature </HighlightText>
+              which reduced the cost of processing.
+            </>,
+            <>
+              Modified the model by integrating both the{" "}
+              <HighlightText>
+                collaborative and content-based filtering
+              </HighlightText>
+              algorithms together in the model.
+            </>,
           ],
           image: "/movie.jpg",
           link: "https://github.com/Neo945/Movie-Recommender-System",
@@ -300,6 +407,8 @@ export default function Project(props) {
                       right={i2 % 2 == 0}
                       left={i2 % 2 == 1}
                       link={item2.link}
+                      jd={item2.jd}
+                      duration={item2.duration}
                     />
                   ))}
                 </div>

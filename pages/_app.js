@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import ComingSoon from "../components/ComingSoon/ComingSoon";
 
 function MyApp({ Component, pageProps }) {
-  const [isWindowSize, setIsWindowSize] = useState(true);
+  const [isWindowSize, setIsWindowSize] = useState(false);
   useEffect(() => {
     const handleSize = () => {
+      console.log(window.innerWidth);
       if (window.innerWidth < 896) {
         setIsWindowSize(false);
       } else {

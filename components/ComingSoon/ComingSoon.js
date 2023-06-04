@@ -6,6 +6,10 @@ export default function ComingSoon() {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
+        position: "fixed",
+        top: "0",
+        left: "0",
+        width: "100vw",
       }}
     >
       <div style={{ display: "flex" }}>

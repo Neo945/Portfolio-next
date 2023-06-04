@@ -6,13 +6,15 @@ import ComingSoon from "../components/ComingSoon/ComingSoon";
 function MyApp({ Component, pageProps }) {
   const [isWindowSize, setIsWindowSize] = useState(true);
   useEffect(() => {
-    window.addEventListener("resize", () => {
+    const handleSize = () => {
       if (window.innerWidth < 896) {
         setIsWindowSize(false);
       } else {
         setIsWindowSize(true);
       }
-    });
+    };
+    window.addEventListener("load", handleSize);
+    window.addEventListener("resize", handleSize);
   }, []);
   return (
     <>

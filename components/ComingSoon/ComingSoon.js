@@ -10,6 +10,7 @@ export default function ComingSoon() {
         top: "0",
         left: "0",
         width: "100vw",
+        backgroundColor: "white",
       }}
     >
       <div style={{ display: "flex" }}>

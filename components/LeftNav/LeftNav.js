@@ -18,6 +18,7 @@ export default function LeftNav(props) {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
+          overflow: "hidden",
         }}
       >
         {[
@@ -31,6 +32,9 @@ export default function LeftNav(props) {
             className={Item.name}
             style={{
               marginBottom: "10px",
+              animation: "leftbounce 1s ease-out forwards",
+              animationDelay: `${1 + 0.25 * index}s`,
+              transform: "translateY(1000px)",
             }}
           >
             <Item color="black" />
@@ -41,6 +45,7 @@ export default function LeftNav(props) {
             width: "1px",
             height: "150px",
             backgroundColor: "black",
+            animation: "drop 1s ease-out forwards",
           }}
         ></div>
       </div>

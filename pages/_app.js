@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   const [isWindowSize, setIsWindowSize] = useState(false);
   useEffect(() => {
     const handleSize = () => {
-      console.log(window.innerWidth);
+      // console.log(window.innerWidth);
       if (window.innerWidth < 896) {
         setIsWindowSize(false);
       } else {
@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Component {...pageProps} isWindowSize={isWindowSize} />
-      {isWindowSize ? null : <ComingSoon />}
+      {/* {isWindowSize ? null : <ComingSoon />} */}
     </>
   );
 }

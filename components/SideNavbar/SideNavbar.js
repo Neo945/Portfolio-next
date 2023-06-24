@@ -18,6 +18,7 @@ function StrokeText(props) {
             cursor: "pointer",
             display: "flex",
             alignItems: "center",
+            ...props.style,
           }}
         >
           <div
@@ -68,6 +69,11 @@ export default function SideNavbar(props) {
                 text={item.name}
                 link={item.link}
                 active={item.active}
+                style={{
+                  animation: "sidebounce 1s ease-out forwards",
+                  animationDelay: `${i * 0.1}s`,
+                  transform: "translateX(1000px)",
+                }}
               />
             );
           })}

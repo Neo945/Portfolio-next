@@ -14,11 +14,15 @@ export default function RightNav(porps) {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          overflow: "hidden",
         }}
       >
         <div
           style={{
             marginBottom: "10px",
+            animation: "leftbounce 1s ease-out forwards",
+            animationDelay: "1s",
+            transform: "translateY(1000px)",
           }}
         >
           <Link href={"mailto:shreeshsrvstv@gmail.com"}>
@@ -30,6 +34,8 @@ export default function RightNav(porps) {
             width: "1px",
             height: "150px",
             backgroundColor: "black",
+            transform: "translateY(1000px)",
+            animation: "drop 1s ease-out forwards",
           }}
         ></div>
       </div>

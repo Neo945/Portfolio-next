@@ -39,50 +39,24 @@ display: block;
     justify-content: center;
     align-items: center;
 }
+.loader-icon {
+  animation: beat 1s infinite alternate;
+  
 
-.loader {
- --clr: #3498db;
- /* color of spining  */
- width: 50px;
- height: 50px;
- position: relative;
+}
+@keyframes beat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.loader div:nth-child(1), .loader div:nth-child(2) {
- content: "";
- position: absolute;
- top: -10px;
- left: -10px;
- width: 100%;
- height: 100%;
- border-radius: 100%;
- border: 10px solid transparent;
- border-top-color: var(--clr);
-}
-
-.loader div:nth-child(1) {
- z-index: 100;
- animation: spin 1s infinite;
-}
-
-.loader div:nth-child(2) {
- border: 10px solid #ccc;
-}
-
-@keyframes spin {
- 0% {
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
- }
- 100% {
-  -webkit-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  transform: rotate(360deg);
- }
-}`;
+`;
 
 export default function Document() {
   return (
@@ -102,8 +76,7 @@ export default function Document() {
         {/* loader */}
         <div id={"globalLoader"}>
           <div className="loader">
-            <div />
-            <div />
+            <img className="loader-icon" src="/icon.svg" alt="logo" />
           </div>
         </div>
 

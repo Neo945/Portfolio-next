@@ -40,20 +40,14 @@ display: block;
     align-items: center;
 }
 .loader-icon {
-  animation: beat 1s infinite alternate;
-  
-
+  animation: beat 0.8s infinite ease-out;
+  height: 100px;
 }
 @keyframes beat {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(0.8) }
+    14% { transform: scale(1.1) }
+    96% { transform: scale(1) }
+    100% { transform: scale(0.8) }
 }
 
 `;

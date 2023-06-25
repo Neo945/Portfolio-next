@@ -7,14 +7,18 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const loader = document.getElementById("globalLoader");
     if (loader) loader.style.display = "none";
-    if (window.innerWidth < 896) {
-      setIsWindowSize(false);
-    } else {
-      const opps = document.getElementById("opps");
-      if (opps) opps.style.display = "none";
-      setIsWindowSize(true);
-    }
-  }, []);
+    const handleWindowSize = () => {
+      if (window.innerWidth < 896) {
+        setIsWindowSize(false);
+      } else {
+        const opps = document.getElementById("opps");
+        if (opps) opps.style.display = "none";
+        setIsWindowSize(true);
+      }
+    };
+    handleWindowSize();
+    window.addEventListener("resize", handleWindowSize);
+  }, [isWindowSize]);
   return (
     <>
       <Head>

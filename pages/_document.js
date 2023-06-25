@@ -75,12 +75,12 @@ export default function Document() {
         </div>
 
         {/* opps */}
-        <div id={"opps"}>
+        {/* <div id={"opps"}>
           <div id="flex">
             <div id="oppsbg"></div>
             <h1>Opps!! Website coming soon in your size</h1>
           </div>
-        </div>
+        </div> */}
         <Main />
         <NextScript />
       </body>

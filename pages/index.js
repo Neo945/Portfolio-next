@@ -12,45 +12,46 @@ import Project from "../components/Project/Project";
 import { createRef, useEffect, useState } from "react";
 import SideNavbar from "../components/SideNavbar/SideNavbar";
 
-function Cursor() {
-  useEffect(() => {
-    const cursor = document.querySelector(".cursor");
-    document.addEventListener("mousemove", (e) => {
-      cursor.style.left = e.pageX + "px";
-      cursor.style.top = e.pageY + "px";
-      // "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;";
-    });
-    // document.addEventListener("click", () => {
-    //   cursor.classList.add("expand");
-    //   setTimeout(() => {
-    //     cursor.classList.remove("expand");
-    //   }, 500);
-    // });
-  }, []);
+// function Cursor() {
+//   useEffect(() => {
+//     const cursor = document.querySelector(".cursor");
+//     document.addEventListener("mousemove", (e) => {
+//       cursor.style.left = e.pageX + "px";
+//       cursor.style.top = e.pageY + "px";
+//       // "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;";
+//     });
+//     // document.addEventListener("click", () => {
+//     //   cursor.classList.add("expand");
+//     //   setTimeout(() => {
+//     //     cursor.classList.remove("expand");
+//     //   }, 500);
+//     // });
+//   }, []);
 
-  return (
-    <>
-      <div
-        className="cursor"
-        style={{
-          position: "absolute",
-          top: "0px",
-          left: "0px",
-          width: "200px",
-          height: "200px",
-          borderRadius: "50%",
-          background:
-            "radial-gradient( 600px circle at 0px 0px, rgba(29, 78, 216, 0.15), transparent 80% )",
-          transform: "translate(-50%, -50%)",
-          pointerEvents: "none",
-          zIndex: "1000",
-        }}
-      ></div>
-    </>
-  );
-}
+//   return (
+//     <>
+//       <div
+//         className="cursor"
+//         style={{
+//           position: "absolute",
+//           top: "0px",
+//           left: "0px",
+//           width: "200px",
+//           height: "200px",
+//           borderRadius: "50%",
+//           background:
+//             "radial-gradient( 600px circle at 0px 0px, rgba(29, 78, 216, 0.15), transparent 80% )",
+//           transform: "translate(-50%, -50%)",
+//           pointerEvents: "none",
+//           zIndex: "1000",
+//         }}
+//       ></div>
+//     </>
+//   );
+// }
 
 export default function Home(props) {
+  console.log(props.isWindowSize);
   const [navbarState, setNavbarState] = useState([
     { name: "About Me", link: "#aboutme", active: false },
     { name: "Experience", link: "#experience", active: false },
@@ -89,15 +90,9 @@ export default function Home(props) {
         }}
       >
         {isOnTop ? (
-          <Navbar
-            navbarState={navbarState}
-            setNavbarState={setNavbarState}
-          ></Navbar>
+          <Navbar navbarState={navbarState}></Navbar>
         ) : (
-          <SideNavbar
-            navbarState={navbarState}
-            setNavbarState={setNavbarState}
-          ></SideNavbar>
+          <SideNavbar navbarState={navbarState}></SideNavbar>
         )}
         <LeftNav></LeftNav>
         <RightNav></RightNav>

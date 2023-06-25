@@ -334,13 +334,13 @@ export default function Project(props) {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !props.navbarState[1].active) {
               props.setNavbarState((prev) => {
                 let newState = [...prev];
                 newState[1].active = true;
                 return newState;
               });
-            } else {
+            } else if (!entry.isIntersecting && props.navbarState[1].active) {
               props.setNavbarState((prev) => {
                 let newState = [...prev];
                 newState[1].active = false;
@@ -360,13 +360,13 @@ export default function Project(props) {
         (entries) => {
           entries.forEach((entry) => {
             // console.log(entry);
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !props.navbarState[2].active) {
               props.setNavbarState((prev) => {
                 let newState = [...prev];
                 newState[2].active = true;
                 return newState;
               });
-            } else {
+            } else if (!entry.isIntersecting && props.navbarState[2].active) {
               props.setNavbarState((prev) => {
                 let newState = [...prev];
                 newState[2].active = false;

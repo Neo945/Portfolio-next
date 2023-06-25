@@ -47,13 +47,16 @@ export default function AboutMe(props) {
       const observer = new IntersectionObserver(
         (entries) => {
           // console.log(entries);
-          if (entries[0].isIntersecting) {
+          if (entries[0].isIntersecting && !props.navbarState[0].active) {
             props.setNavbarState((prev) => {
               let newState = [...prev];
               newState[0].active = true;
               return newState;
             });
-          } else {
+          } else if (
+            !entries[0].isIntersecting &&
+            props.navbarState[0].active
+          ) {
             props.setNavbarState((prev) => {
               let newState = [...prev];
               newState[0].active = false;

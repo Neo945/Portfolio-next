@@ -100,7 +100,9 @@ export default function AboutMe(props) {
               fontSize: "20px",
             }}
           >
-            <TextContent style={{ fontSize: "0.8em" }} />
+            <TextContent
+              style={!props.isWindowSize ? { fontSize: "0.8em" } : {}}
+            />
           </div>
         </div>
         <div

@@ -12,7 +12,7 @@ export default function Page(props) {
         flexDirection: "column",
         fontSize: "40px",
         ...props.style,
-        marginBottom: props.isWindowSize ? "0px" : "100px",
+        marginBottom: !props.isWindowSize ? "0px" : "100px",
       }}
     >
       {props.children}

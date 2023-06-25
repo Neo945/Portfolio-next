@@ -108,6 +108,7 @@ export default function Home(props) {
           }}
         >
           <AboutMe
+            isWindowSize={props.isWindowSize}
             navbarState={navbarState}
             setNavbarState={setNavbarState}
           ></AboutMe>

@@ -18,8 +18,8 @@ function Projects(props) {
       <Link href={props.link} target="_blank">
         <div
           style={{
-            width: "150px",
-            height: "150px",
+            width: props.isWindowSize ? "150px" : "15vw",
+            height: props.isWindowSize ? "150px" : "15vw",
             borderRadius: "10px",
             background: `url(${props.image}) no-repeat center center / cover`,
             display: "flex",
@@ -66,7 +66,6 @@ function SideProject(props) {
       <div
         style={{
           width: "100%",
-          height: "400px",
           position: "relative",
           display: "flex",
           alignItems: "center",
@@ -83,16 +82,21 @@ function SideProject(props) {
             position: "absolute",
             right: props.right ? 0 : null,
             left: props.left ? 0 : null,
+            zIndex: -1,
           }}
         ></div>
+        {props.left && props.isWindowSize ? (
+          <div
+            style={{
+              width: "20%",
+            }}
+          ></div>
+        ) : null}
         <div
           style={{
             // height: "70%",
-            width: "80%",
+            width: props.isWindowSize ? "80%" : "100%",
             backgroundColor: "rgba(234, 234, 234, 0.87)",
-            position: "absolute",
-            left: props.right ? 0 : null,
-            right: props.left ? 0 : null,
             padding: "20px",
           }}
         >
@@ -387,6 +391,7 @@ export default function Project(props) {
       <div
         style={{
           width: "75%",
+          fontSize: "0.8em",
         }}
       >
         <div style={{ fontWeight: "bold" }}>Things I have Done So far</div>
@@ -400,6 +405,7 @@ export default function Project(props) {
                 <div>
                   {item.content.map((item2, i2) => (
                     <SideProject
+                      isWindowSize={props.isWindowSize}
                       key={i2}
                       title={item2.title}
                       content={item2.content}
@@ -424,11 +430,13 @@ export default function Project(props) {
               display: "grid",
               gridTemplateColumns: "repeat(4, 1fr)",
               gridGap: "20px",
+              marginBottom: "50px",
             }}
           >
             {randData.map((item, i) => {
               return (
                 <Projects
+                  isWindowSize={props.isWindowSize}
                   key={i}
                   title={item.title}
                   image={item.image}

@@ -155,7 +155,7 @@ const EmailIconLink = (param) => {
 const ResumeIconLink = (param) => {
   return (
     <Link
-      href=""
+      href="https://drive.google.com/file/d/1tANWRyfayvmgQBqMHsmysjyyrcwUVgrZ/view?usp=sharing"
       target="_blank"
       style={{
         display: "flex",

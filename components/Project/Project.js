@@ -391,7 +391,7 @@ export default function Project(props) {
       <div
         style={{
           width: "75%",
-          fontSize: "0.8em",
+          fontSize: !props.isWindowSize ? "0.8em" : null,
         }}
       >
         <div style={{ fontWeight: "bold" }}>Things I have Done So far</div>

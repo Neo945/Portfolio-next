@@ -3,9 +3,9 @@ import Button from "../Button/Button";
 import { useEffect, useRef, useState } from "react";
 import HighlightText from "../HighlightText/HighlightText";
 
-function TextContent() {
+function TextContent(props) {
   return (
-    <>
+    <div style={props.style}>
       <br /> Hello there fellow visitors
       <br />- Welcome to my portfolio website! I am{" "}
       <HighlightText>Shreesh Srivastava</HighlightText>, a passionate and
@@ -28,7 +28,7 @@ function TextContent() {
       <br></br>That&apos;s all about it.
       <br></br>
       Thank you for visiting my portfolio website. I hope you enjoy it!
-    </>
+    </div>
   );
 }
 
@@ -84,12 +84,13 @@ export default function AboutMe(props) {
       >
         <div
           style={{
-            width: "70%",
+            width: !props.isWindowSize ? "100%" : "70%",
           }}
         >
           <div
             style={{
               fontWeight: "bold",
+              fontSize: "0.8em",
             }}
           >
             About Me
@@ -99,7 +100,7 @@ export default function AboutMe(props) {
               fontSize: "20px",
             }}
           >
-            <TextContent />
+            <TextContent style={{ fontSize: "0.8em" }} />
           </div>
         </div>
         <div
@@ -107,6 +108,7 @@ export default function AboutMe(props) {
           style={{
             width: "30%",
             position: "relative",
+            display: !props.isWindowSize ? "none" : "inline-block",
           }}
         >
           <div
@@ -132,7 +134,6 @@ export default function AboutMe(props) {
           /> */}
         </div>
       </div>
-      <div></div>
     </>
   );
 }

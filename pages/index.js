@@ -51,7 +51,6 @@ import SideNavbar from "../components/SideNavbar/SideNavbar";
 // }
 
 export default function Home(props) {
-  console.log(props.isWindowSize);
   const [navbarState, setNavbarState] = useState([
     { name: "About Me", link: "#aboutme", active: false },
     { name: "Experience", link: "#experience", active: false },
@@ -89,17 +88,21 @@ export default function Home(props) {
           scrollBehavior: "smooth",
         }}
       >
-        {isOnTop ? (
-          <Navbar navbarState={navbarState}></Navbar>
+        {isOnTop || !props.isWindowSize ? (
+          <Navbar
+            isWindowSize={props.isWindowSize}
+            navbarState={navbarState}
+          ></Navbar>
         ) : (
           <SideNavbar navbarState={navbarState}></SideNavbar>
         )}
-        <LeftNav></LeftNav>
-        <RightNav></RightNav>
-        <Page>
-          <HomePage></HomePage>
+        {props.isWindowSize ? <LeftNav></LeftNav> : null}
+        {props.isWindowSize ? <RightNav></RightNav> : null}
+        <Page isWindowSize={props.isWindowSize}>
+          <HomePage isWindowSize={props.isWindowSize}></HomePage>
         </Page>
         <Page
+          isWindowSize={props.isWindowSize}
           style={{
             justifyContent: "space-evenly",
           }}
@@ -111,30 +114,31 @@ export default function Home(props) {
         </Page>
 
         <Page
+          isWindowSize={props.isWindowSize}
           style={{
             height: "fit-content",
             margin: "20px 0px",
           }}
         >
           <Project
+            isWindowSize={props.isWindowSize}
             navbarState={navbarState}
             setNavbarState={setNavbarState}
           ></Project>
         </Page>
-        {/* {props.isWondowSize ? ( */}
-        <Page
-          style={{
-            backgroundColor: "black",
-            color: "white",
-          }}
-        >
-          <GetInTouch
-            navbarState={navbarState}
-            setNavbarState={setNavbarState}
-          ></GetInTouch>
-        </Page>
-        {/* )  */}
-        {/* : null} */}
+        {props.isWindowSize ? (
+          <Page
+            style={{
+              backgroundColor: "black",
+              color: "white",
+            }}
+          >
+            <GetInTouch
+              navbarState={navbarState}
+              setNavbarState={setNavbarState}
+            ></GetInTouch>
+          </Page>
+        ) : null}
       </main>
     </div>
   );

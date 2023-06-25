@@ -93,15 +93,7 @@ const GithubIconLink = (param) => {
 
 const InstagramIconLink = (param) => {
   return (
-    <Link
-      href="https://www.instagram.com/neo_945_/"
-      target="_blank"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <Link href="https://www.instagram.com/neo_945_/" target="_blank">
       <svg
         width="24"
         height="24"

@@ -3,6 +3,7 @@ export default function Page(props) {
     <div
       style={{
         // scrollSnapAlign: "start",
+        // height: props.isWindowSize ? "100vh" : "fit-content",
         height: "100vh",
         width: "100vw",
         display: "flex",
@@ -11,6 +12,7 @@ export default function Page(props) {
         flexDirection: "column",
         fontSize: "40px",
         ...props.style,
+        marginBottom: props.isWindowSize ? "0px" : "100px",
       }}
     >
       {props.children}

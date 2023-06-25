@@ -20,7 +20,7 @@ export default function Navbar(props) {
       <Icon color="#000"></Icon>
       <div
         style={{
-          display: "flex",
+          display: !props.isWindowSize ? "none" : "flex",
           flexDirection: "row",
           width: "40%",
           justifyContent: "space-evenly",

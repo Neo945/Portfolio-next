@@ -7,7 +7,7 @@ export default function Button(props) {
           backgroundColor: "white",
           border: "5px solid rgba(212, 212, 212, 1)",
           borderRadius: "10px",
-          padding: "10px 40px",
+          padding: "10px 30px",
           fontSize: "0.7em",
           ...props.style,
         }}
